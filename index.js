@@ -6,27 +6,27 @@ const questions = [
     {
         type: "input",
         message: "What is your project title?",
-        name: "Title"
+        name: "title"
     },
     {
         type: "input",
         message: "Describe your project",
-        name: "Description"
+        name: "description"
     },
     {
         type: "input",
         message: "What are the steps required to install your project?",
-        name: "Installation"
+        name: "installation"
     },
     {
         type: "input",
         message: "Provide instructions for use.",
-        name: "Usage"
+        name: "usage"
     },
     {
-        type: "list",
+        type: "checkbox",
         message: "Select license",
-        name: "License",
+        name: "license",
         choices: [
             "MIT",
             "GVL-GPL 3.0",
@@ -38,33 +38,79 @@ const questions = [
     {
         type: "input",
         message: "Contributors?",
-        name: "Contributors"
+        name: "contributors"
     },
     {
         type: "input",
         message: "How do you test your project?",
-        name: "Test"
-    },
-    
-    {
-        type: "input",
-        message: "Contact info for further questions",
-        name: "Questions"
+        name: "test"
     },
     {
         type: "input",
         message: "Your Github username",
-        name: "Username"
+        name: "username"
     },
     {
         type: "input",
         message: "What is your email?",
-        name: "Email"
+        name: "email"
     }
     
 ];
 
+function generateMarkdown(data) {
+    return `
+  
+  # ${data.title}
+  
+  
+  
+  ## Table of Contents
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributors](#contributors)
+  * [Test](#test)
+  * [Questions](#questions)
+  
+  ## Description
+  ${data.description}
+  
+  ## Installation 
+  ${data.installation}
+  
+  ## Usage 
+  ${data.usage}
+  
+  ## License
+  ${data.license}
+  
+  ## Contributors
+  ${data.contributors}
+  
+  ## Test
+  ${data.test}
+  
+  ## Questions
+  For questions, you can contact the developer at:
+  
+  Github:[${data.username}]
+  
+  Email:[${data.email}]
+  
+  `};
+
 function init() {
-    inquirer.prompt(questions);
+    inquirer.prompt(questions).then(input => {
+        const response = generateMarkdown(input);
+        console.log(input);
+
+        fs.writeFile("README.md", response, error => {
+            if (error) {
+                throw error;
+            }
+        })
+    });
 }
 init();
