@@ -1,6 +1,6 @@
 
   
-  # README Generator
+  # read me gen
   
   
   
@@ -14,22 +14,22 @@
   * [Questions](#questions)
   
   ## Description
-  This is a command line based program to generate a read me markdown file for github repositories
+  it reads me
   
   ## Installation 
-  clone from github
+  clone
   
   ## Usage 
-  In your command line run "node index" and follow the prompts. You must have nodejs installed.
+  run node index in command line
   
   ## License
-  
+  MIT
   
   ## Contributors
-  n/a
+  yee
   
   ## Test
-  clone from github and run in nodejs
+  yuee
   
   ## Questions
   For questions, you can contact the developer at:
