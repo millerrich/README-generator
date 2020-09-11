@@ -29,9 +29,10 @@ const questions = [
         name: "license",
         choices: [
             "MIT",
-            "GVL-GPL 3.0",
-            "APACHE 2.0",
-            "BSD 3",
+            "GPLv2",
+            "GPLv3",
+            "APACHE",
+            "BSD 3-clause",
             "None"
         ]
     },

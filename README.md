@@ -14,22 +14,22 @@
   * [Questions](#questions)
   
   ## Description
-  This project is a command line based tool for generating README.md files quickly and easily.
+  This is a command line based program to generate a read me markdown file for github repositories
   
   ## Installation 
-  Please clone from github
+  clone from github
   
   ## Usage 
-  To use you must first install nodeJS, then run "node index" in your command line and follow the prompts.
+  In your command line run "node index" and follow the prompts. You must have nodejs installed.
   
   ## License
-  MIT
+  
   
   ## Contributors
-  none
+  n/a
   
   ## Test
-  install and run in nodejs
+  clone from github and run in nodejs
   
   ## Questions
   For questions, you can contact the developer at:
