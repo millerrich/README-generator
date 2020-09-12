@@ -30,28 +30,28 @@ const questions = [
         name: "license",
         choices: [
             {
-                key: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
-                value: "MIT"
+                value: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+                name: "MIT"
             },
             {
-                key: "[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)",
-                value: "GPLv2"
+                value: "[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)",
+                name: "GPLv2"
             },
             {
-                key: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
-                value: "GPLv3"
+                value: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+                name: "GPLv3"
             },
             {
-                key: "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
-                value: "APACHE 2.0"
+                value: "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+                name: "APACHE 2.0"
             },
             {
-                key: "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
-                value: "BSD 3-clause"
+                value: "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
+                name: "BSD 3-clause"
             },
             {
-                key: "no license",
-                value: "None"
+                value: "no license",
+                name: "None"
             }
         ]
     },
@@ -79,60 +79,63 @@ const questions = [
 ];
 
 function generateMarkdown(data) {
+
     
-    return `
-  
-  # ${data.title}
-  
-  
-  
-  ## Table of Contents
-  * [Description](#description)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [License](#license)
-  * [Contributors](#contributors)
-  * [Test](#test)
-  * [Questions](#questions)
-  
-  ## Description
-  ${data.description}
-  
-  ## Installation 
-  ${data.installation}
-  
-  ## Usage 
-  ${data.usage}
-  
-  ## License
-  ${data.license[0]}
-  
-  ## Contributors
-  ${data.contributors}
-  
-  ## Test
-  ${data.test}
-  
-  ## Questions
-  For questions, you can contact the developer at:
-  
-  Github:[${data.username}]
-  
-  Email:[${data.email}]
-  
-  `};
+return `
 
-function init() {
-    prompt(questions).then(input => {
-        
-        const response = generateMarkdown(input);
-        console.log(input.license);
+# ${data.title}
 
-        fs.writeFile("README.md", response, error => {
-            if (error) {
-                throw error;
-            }
-        })
-    });
-}
-init();
+${data.license}
+
+
+## Table of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributors](#contributors)
+* [Test](#test)
+* [Questions](#questions)
+
+## Description
+${data.description}
+
+## Installation 
+${data.installation}
+
+## Usage 
+${data.usage}
+
+## License
+${data.license}
+
+## Contributors
+${data.contributors}
+
+## Test
+${data.test}
+
+## Questions
+For questions, you can contact the developer at:
+
+Github:[${data.username}]
+
+Email:[${data.email}]
+
+`
+};
+    
+    init();
+    function init() {
+      prompt(questions).then(input => {
+          
+          const response = generateMarkdown(input);
+        //   console.log(input.license);
+    
+          fs.writeFile("README.md", response, error => {
+              if (error) {
+                  throw error;
+              }
+          })
+      });
+    }
